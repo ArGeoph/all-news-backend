@@ -14,17 +14,23 @@ router.get('/', function(req, res, next) {
 
 /* GET News for provided source */
 router.get('/getNews', async function f(req, res, next) {
-  const response = await getNews();
+  const response = await getNews(req.query);
   res.send(response);
 });
 
 /* Helper methods */
-async function getNews() {
+/**
+ * Fetch news from the server
+ * @param params
+ * @returns {Promise<any>}
+ */
+async function getNews(params) {
   try {
     const payload = {
-        headers: {
-            'x-api-key': apiKey
-        }
+      params,
+      headers: {
+        'x-api-key': apiKey
+      }
     };
     const response = await axios.get(newsUrl, payload);
     return response.data;

@@ -1,3 +1,3 @@
-const newsUrl = 'https://newsapi.org/v2/top-headlines?sources=techcrunch&pageSize=90';
+const newsUrl = 'https://newsapi.org/v2/top-headlines';
 
 exports.newsUrl = newsUrl;
