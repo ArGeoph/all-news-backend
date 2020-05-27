@@ -4,19 +4,15 @@ const axios = require('axios');
 require('dotenv').config();
 
 const apiKey = process.env.API_KEY;
-const { newsUrl } = require('../utils/urls');
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express app' });
-});
+const { getNewsUrl } = require('../utils/urls');
 
 
 /* GET News for provided source */
-router.get('/getNews', async function f(req, res, next) {
+router.get('/', async function f(req, res, next) {
   const response = await getNews(req.query);
-  res.send(response);
+  res.json(response);
 });
+
 
 /* Helper methods */
 /**
@@ -32,7 +28,7 @@ async function getNews(params) {
         'x-api-key': apiKey
       }
     };
-    const response = await axios.get(newsUrl, payload);
+    const response = await axios.get(getNewsUrl, payload);
     return response.data;
   } catch (e) {
     return e;

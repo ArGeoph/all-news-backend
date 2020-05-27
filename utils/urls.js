@@ -1,3 +1,5 @@
-const newsUrl = 'https://newsapi.org/v2/top-headlines';
+const getNewsUrl = 'https://newsapi.org/v2/top-headlines';
+const searchNewsUrl = 'https://newsapi.org/v2/everything';
 
-exports.newsUrl = newsUrl;
+exports.getNewsUrl = getNewsUrl;
+exports.searchNewsUrl = searchNewsUrl;
