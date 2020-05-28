@@ -29,7 +29,7 @@ async function searchNews(params) {
         const response = await axios.get(searchNewsUrl, payload);
         return response.data;
     } catch (e) {
-        return e;
+        return e.response.data.message;
     }
 }
 

@@ -31,7 +31,7 @@ async function getNews(params) {
     const response = await axios.get(getNewsUrl, payload);
     return response.data;
   } catch (e) {
-    return e;
+    return e.response.data.message;
   }
 }
 
