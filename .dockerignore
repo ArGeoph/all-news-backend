@@ -1,5 +1,7 @@
 node_modules
 npm-debug.log
+.idea
 .env
+Dockerfile.save
 cert.pem
 key.pem
