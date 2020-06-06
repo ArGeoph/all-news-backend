@@ -7,6 +7,7 @@ const sassMiddleware = require('node-sass-middleware');
 
 const getNewsRouter = require('./routes/getNews');
 const searchNewsRouter = require('./routes/searchNews');
+const topHeadlinesRouter = require('./routes/topHeadlines');
 
 const app = express();
 
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/getNews', getNewsRouter);
 app.use('/searchNews', searchNewsRouter);
+app.use('/topHeadlines', topHeadlinesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
