@@ -8,7 +8,6 @@ const app = require('../app');
 const debug = require('debug')('all-news-backend:server');
 const helmet = require('helmet');
 const http = require('http');
-const fs = require('fs');
 
 /**
  * Get port from environment and store in Express.
@@ -18,13 +17,8 @@ const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 
-// const options = {
-//   key: fs.readFileSync('key.pem'),
-//   cert: fs.readFileSync('cert.pem'),
-// };
-
 /**
- * Create HTTPS server.
+ * Create HTTP server.
  */
 
 const server = http.createServer(app);
