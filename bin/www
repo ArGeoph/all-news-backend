@@ -10,6 +10,16 @@ const helmet = require('helmet');
 const http = require('http');
 
 /**
+ * Add helmet to our app
+ */
+app.use(helmet());
+
+/**
+ * Improve app security by disabling the header containing the backend framework name
+ */
+app.disable('x-powered-by');
+
+/**
  * Get port from environment and store in Express.
  */
 
