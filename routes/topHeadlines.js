@@ -1,8 +1,9 @@
 const express = require('express');
+const { query } = require('express-validator')
+
 const router = express.Router();
 const fetchNews = require('../utils/fetchHelpers').fetchDataFromNewsApi;
 const { topHeadlinesUrl } = require('../utils/urls');
-const { query } = require('express-validator')
 
 /* Get top headlines for provided country code
 * Expected parameters: country (country code, such as ca, us, fr, or ru)
