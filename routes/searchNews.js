@@ -12,7 +12,7 @@ const { searchNewsUrl } = require('../utils/urls');
 router.get('/', [
     query('q').trim().escape(),
     query('sortBy').trim().escape(),
-    query('pageSize').trim().escape()
+    query('pageSize').isNumeric().trim().escape()
   ], async function f(req, res) {
     // Extract only required parameters from the request query
     const { q, sortBy, pageSize } = req.query;
