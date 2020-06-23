@@ -18,6 +18,7 @@ app.use(helmet());
  * Improve app security by disabling the header containing the backend framework name
  */
 app.disable('x-powered-by');
+app.disable('etag');
 
 /**
  * Get port from environment and store in Express.
