@@ -9,7 +9,7 @@ const { geolocationApiUrl, topHeadlinesUrl } = require('../utils/urls');
 
 /* Get top headlines for provided country code
 * Expected parameters: country (country code, such as ca, us, fr, or ru)
-*
+* if the country code wasn't provided the route will try to determine the country using third-party API and user's IP
 * */
 router.get('/', query('country').trim().escape(), async function f(req, res) {
   // Extract only required parameters from request query
@@ -19,6 +19,7 @@ router.get('/', query('country').trim().escape(), async function f(req, res) {
 
   // If country code is not provided extract user IP address and get a country code from getCountryCode route
   if (!country.countryCode) {
+    // Extract IP from the request headers
     const userIp = req.headers['X-Forwarded-For'] || req.ip;
     const payload = {
       'params': {
@@ -28,6 +29,7 @@ router.get('/', query('country').trim().escape(), async function f(req, res) {
     };
 
     try {
+      // Get country information from a third-party geolocaiton API
       const response = await axios.get(geolocationApiUrl, payload);
 
       if (typeof response !== 'string') {
@@ -50,6 +52,7 @@ router.get('/', query('country').trim().escape(), async function f(req, res) {
     }
   }
 
+  // Get headlines for the provided country code
   const response = await fetchNews(topHeadlinesUrl, { 'country': country.countryCode });
   return res.json({...response, ...country});
 });
