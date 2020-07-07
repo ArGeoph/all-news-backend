@@ -1,6 +1,6 @@
 const axios = require('axios');
 require('dotenv').config();
-const apiKey = process.env.API_KEY;
+const apiKey = process.env.API_KEY_NEWS;
 
 /**
  * Fetch news from the server
