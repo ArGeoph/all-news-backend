@@ -5,6 +5,7 @@ const router = express.Router();
  * Health check route
  */
 router.get('/', async (req, res) => {
+    // Return additional information about the app
     const healthCheckStatus = {
         uptime: process.uptime(),
         message: 'OK',

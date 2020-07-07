@@ -2,7 +2,7 @@ const express = require('express');
 const { query } = require('express-validator');
 
 const router = express.Router();
-const fetchNews = require('../utils/fetchHelpers').fetchDataFromNewsApi;
+const fetchNews = require('../utils/fetchHelpers').fetchDataFromApi;
 const { searchNewsUrl } = require('../utils/urls');
 
 /* Search for news based on user input

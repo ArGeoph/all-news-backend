@@ -4,10 +4,11 @@ const apiKey = process.env.API_KEY;
 
 /**
  * Fetch news from the server
- * @param apiUrl, params
+ * @param apiUrl
+ * @param params
  * @returns {Promise<any>}
  */
-async function fetchDataFromNewsApi(apiUrl, params) {
+async function fetchDataFromApi(apiUrl, params) {
     try {
         const payload = {
             params,
@@ -22,4 +23,4 @@ async function fetchDataFromNewsApi(apiUrl, params) {
     }
 }
 
-exports.fetchDataFromNewsApi = fetchDataFromNewsApi;
+exports.fetchDataFromApi = fetchDataFromApi;

@@ -2,7 +2,7 @@ const express = require('express');
 const { query } = require('express-validator');
 
 const router = express.Router();
-const fetchNews = require('../utils/fetchHelpers').fetchDataFromNewsApi;
+const fetchNews = require('../utils/fetchHelpers').fetchDataFromApi;
 const { getNewsUrl } = require('../utils/urls');
 
 /* GET News for provided sources
