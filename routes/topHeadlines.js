@@ -29,7 +29,7 @@ router.get('/', query('country').trim().escape(), async function f(req, res) {
     };
 
     try {
-      // Get country information from a third-party geolocaiton API
+      // Get country information from a third-party geolocation API
       const response = await axios.get(geolocationApiUrl, payload);
 
       if (typeof response !== 'string') {
@@ -43,7 +43,6 @@ router.get('/', query('country').trim().escape(), async function f(req, res) {
       }
     } catch (e) {
       // If we were unable to get country information from the geolocation API, use the default values
-      console.log('I am here 2');
       country = {
         'countryCode': 'us',
         'countryName': 'The USA',
