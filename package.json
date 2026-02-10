@@ -16,7 +16,7 @@
     "http-errors": "1.8.0",
     "morgan": "~1.10.0",
     "node-sass-middleware": "1.1.0",
-    "pug": "3.0.0"
+    "pug": "3.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
